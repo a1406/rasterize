@@ -50,6 +50,11 @@ void print_rasterize_point(int xs, int ys, int xe, int ye)
 	int triangle_y = abs(ye - ys);
 	int sx = 1;//xe - xs;
 	int sy = 1;//ye - ys;
+	if (xe < xs)
+		sx = -1;
+	if (ye < ys)
+		sy = -1;
+	
 	int flag = 0;
 	if (triangle_y > triangle_x)
 	{
@@ -137,6 +142,6 @@ int main(int argc, char *argv[])
 	printf("move from[%d][%d] to[%d][%d]\n", start_x, start_y, end_x, end_y);
 
 	print_rasterize_point(start_x, start_y, end_x, end_y);	
-	print_rasterize_point2(start_x, start_y, end_x, end_y);
+//	print_rasterize_point2(start_x, start_y, end_x, end_y);
     return 0;
 }
